@@ -1,0 +1,78 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabana Beach Resort</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/gallery.css">
+
+</head>
+
+<body>
+
+    <section class="header">
+
+        <div class="flex">
+            <a href="#home" class="logo">Sabana Beach Resort </a>
+
+            <div id="menu-btn" class="fas fa-bars"></div>
+        </div>
+
+        <nav class="navbar">
+            <a href="index.html">Back to Home</a>
+
+        </nav>
+
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <h2>Welcome to Sabana Beach Resort</h2>
+            <p>
+                Experience the beauty and serenity of Sabana Beach Resort, a perfect getaway for relaxation and
+                adventure.
+                Nestled along the pristine shores, our resort offers breathtaking views, comfortable accommodations, and
+                a variety of delicious cuisines.
+            </p>
+            <p>
+                Explore our gallery to get a glimpse of our elegant rooms, fine dining options, and the stunning
+                beachfront.
+                Whether you are here for a peaceful retreat or a thrilling beach adventure, we have something for
+                everyone.
+            </p>
+        </div>
+    </section>
+
+
+    <div class="gallerysec">
+        <div class="gallery" id="gallery"></div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const gallery = document.getElementById("gallery");
+            const imageCount = 21; // Adjust the number of images
+
+            for (let i = 1; i <= imageCount; i++) {
+                ["jpg", "png"].forEach(ext => {
+                    const img = document.createElement("img");
+                    img.src = `gallery_images/image${i}.${ext}`;
+                    img.alt = `Image ${i}`;
+                    img.classList.add("gallery-image");
+                    img.onerror = function () { this.style.display = "none"; };
+                    gallery.appendChild(img);
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

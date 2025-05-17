@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Sabana Beach Resort</title>
+
+    <!-- Same CSS links as index.html -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header (same as index.html but highlight Register) -->
+    <section class="header">
+        <div class="flex">
+            <a href="index.html" class="logo">Sabana Beach Resort</a>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn">Login</a>
+                <a href="register.html" class="btn active">Register</a>
+                <a href="index.html#reservation" class="btn">Make a Reservation</a>
+            </div>
+            <div id="menu-btn" class="fas fa-bars"></div>
+        </div>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#reservation">Reservation</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="index.html#reviews">Reviews</a>
+            <a href="index.html#pricing">Pricing</a>
+        </nav>
+    </section>
+
+    <!-- Register Form Section -->
+    <section class="auth-page">
+        <div class="form-container">
+            <form action="" method="post">
+                <h3>Create Your Account</h3>
+                <div class="flex">
+                    <input type="text" name="first_name" required maxlength="50" placeholder="First Name" class="box">
+                    <input type="text" name="last_name" required maxlength="50" placeholder="Last Name" class="box">
+                </div>
+                <input type="email" name="email" required maxlength="50" placeholder="Email Address" class="box">
+                <input type="tel" name="phone" required maxlength="20" placeholder="Phone Number" class="box">
+                <input type="password" name="password" required maxlength="20" placeholder="Create Password"
+                    class="box">
+                <input type="password" name="confirm_password" required maxlength="20" placeholder="Confirm Password"
+                    class="box">
+                <input type="submit" value="Register Now" name="register" class="btn">
+                <p>Already have an account? <a href="login.html">Sign in</a></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer (same as index.html) -->
+    <section class="footer">
+        <!-- ... same footer content as index.html ... -->
+    </section>
+
+    <!-- Same JS links as index.html -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
