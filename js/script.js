@@ -108,3 +108,35 @@ if (document.querySelector('.auth-page')) {
       });
    });
 }
+document.addEventListener("DOMContentLoaded", function () {
+   // Reservation Form Validation
+   const reservationForm = document.getElementById("reservationForm");
+   if (reservationForm) {
+       reservationForm.addEventListener("submit", function (e) {
+           const name = document.getElementById("rname");
+           const date = document.getElementById("rdate");
+           const time = document.getElementById("rtime");
+           const guests = document.getElementById("rguests");
+
+           if (!name.value || !date.value || !time.value || !guests.value) {
+               e.preventDefault();
+               alert("🚫 Please fill out all reservation fields.");
+           }
+       });
+   }
+
+   // Contact Form Validation
+   const contactForm = document.getElementById("contactForm");
+   if (contactForm) {
+       contactForm.addEventListener("submit", function (e) {
+           const name = document.getElementById("cname");
+           const email = document.getElementById("cemail");
+           const message = document.getElementById("cmessage");
+
+           if (!name.value || !email.value || !message.value) {
+               e.preventDefault();
+               alert("🚫 Please fill out all contact fields.");
+           }
+       });
+   }
+});

@@ -42,7 +42,7 @@
     <!-- Example for login.html (similar for register.html) -->
     <section class="auth-page">
         <div class="form-container">
-            <form id="login-form" class="auth-form">
+            <form id="loginForm" action="backend/login.php" method="post" class="auth-form">
                 <h3>Welcome Back!</h3>
                 <div class="input-group">
                     <input type="email" name="email" required placeholder="Your Email" class="box">
@@ -54,7 +54,6 @@
                 <div class="flex">
                     <input type="checkbox" id="remember" name="remember">
                     <label for="remember">Remember me</label>
-                    <a href="forgot-password.html">Forgot password?</a>
                 </div>
                 <button type="submit" class="btn">Login Now</button>
                 <p class="auth-link">Don't have an account? <a href="register.html">Register here</a></p>
@@ -70,6 +69,35 @@
     <!-- Same JS links as index.html -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="js/script.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const response = await fetch(this.action, {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                window.location.href = result.redirect;
+            } else {
+                if (result.errors) {
+                    // Display errors to user
+                    Object.entries(result.errors).forEach(([field, error]) => {
+                        const input = document.querySelector(`[name="${field}"]`);
+                        if (input) {
+                            input.nextElementSibling.textContent = error;
+                        }
+                    });
+                } else {
+                    alert(result.message);
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>

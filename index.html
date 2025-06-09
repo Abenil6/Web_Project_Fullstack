@@ -197,7 +197,7 @@
       <div class="pricing-container">
 
          <div class="pricing-box">
-            <img src="/images/room.jpeg" alt="">
+            <img src="images/room.jpeg" alt="">
             <h4>Standard Room</h4>
             <p class="price">5000 birr/night</p>
             <p>A cozy and comfortable room with a beautiful view of the garden.</p>
@@ -205,7 +205,7 @@
          </div>
 
          <div class="pricing-box">
-            <img src="/images/room1.jpg" alt="">
+            <img src="images/room1.jpg" alt="">
             <h4>Deluxe Room</h4>
             <p class="price">8000 birr/night</p>
             <p>Spacious and luxurious room with a stunning ocean view.</p>
@@ -213,7 +213,7 @@
          </div>
 
          <div class="pricing-box">
-            <img src="/images/room2.jpg" alt="">
+            <img src="images/room2.jpg" alt="">
             <h4>Family Suite</h4>
             <p class="price">15000 birr/night</p>
             <p>A large suite with multiple rooms, ideal for families looking to stay together.</p>
@@ -221,7 +221,7 @@
          </div>
 
          <div class="pricing-box">
-            <img src="/images/room3.jpg" alt="">
+            <img src="images/room3.jpg" alt="">
             <h4>Presidential Suite</h4>
             <p class="price">55000 birr/night</p>
             <p>Our most luxurious suite with breathtaking views, a private pool, and premium amenities.</p>
@@ -237,7 +237,7 @@
 
    <section class="reservation" id="reservation">
 
-      <form action="" method="post">
+      <form id="reservationForm" action="backend/reservation.php" method="POST">
          <h3>Make a Reservation</h3>
          <div class="flex">
             <div class="box">
@@ -264,7 +264,7 @@
                <select name="childs" class="input" required>
                   <option value="-">0 child</option>
                   <option value="1">1 child</option>
-                  <option value="2">2 childs</option>=
+                  <option value="2">2 childs</option>
                   <option value="3">3 childs</option>
                   <option value="4">4 childs</option>
                   <option value="5">5 childs</option>
@@ -283,7 +283,7 @@
                </select>
             </div>
          </div>
-         <input type="submit" value="check availability" name="check" class="btn">
+         <input type="submit" value="Reserve" name="check" class="btn">
       </form>
 
    </section>
@@ -349,7 +349,7 @@
 
       <div class="row">
 
-         <form action="" method="post">
+         <form id="contactForm" action="backend/contact.php" method="post">
             <h3>send us message</h3>
             <input type="text" name="Name" required maxlength="50" placeholder="Enter your name" class="box">
             <input type="email" name="Email" required maxlength="50" placeholder="Enter your email" class="box">

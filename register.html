@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
+<!-- Add this JavaScript before </body> -->
+
 
 <body>
 
@@ -41,7 +43,7 @@
     <!-- Register Form Section -->
     <section class="auth-page">
         <div class="form-container">
-            <form action="" method="post">
+            <form id="registerForm" action="backend/register.php" method="POST">
                 <h3>Create Your Account</h3>
                 <div class="flex">
                     <input type="text" name="first_name" required maxlength="50" placeholder="First Name" class="box">
@@ -67,6 +69,50 @@
     <!-- Same JS links as index.html -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="js/script.js"></script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent page reload
+
+            const form = e.target;
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert(result.message);
+                    window.location.href = result.redirect; // Redirect to login page
+                } else {
+                    // Display errors (e.g., under input fields)
+                    if (result.errors) {
+                        for (const [field, error] of Object.entries(result.errors)) {
+                            const input = document.querySelector(`[name="${field}"]`);
+                            if (input) {
+                                // Create/show error message element
+                                let errorElement = input.nextElementSibling;
+                                if (!errorElement || !errorElement.classList.contains('error')) {
+                                    errorElement = document.createElement('div');
+                                    errorElement.className = 'error';
+                                    input.parentNode.insertBefore(errorElement, input.nextSibling);
+                                }
+                                errorElement.textContent = error;
+                            }
+                        }
+                    } else {
+                        alert(result.message || "Registration failed!");
+                    }
+                }
+            } catch (error) {
+                alert("Network error. Please try again.");
+                console.error(error);
+            }
+        });
+    </script>
 </body>
 
 </html>
